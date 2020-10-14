@@ -66,6 +66,8 @@ type jsonContent struct {
 	ProvincesGB         []string `json:"provincesGB"`
 	StreetNameGB        []string `json:"streetNameGB"`
 	StreetTypesGB       []string `json:"streetTypesGB"`
+	Colors              []string `json:"colors"`
+	Animals             []string `json:"animals"`
 }
 
 type pRand struct {
@@ -440,4 +442,14 @@ func PhoneNumber() string {
 		}
 		str += " " + Digits(privateRand.Intn(remaining-1)+1)
 	}
+}
+
+// Color returns a random color.
+func Color() string {
+	return randomFrom(jsonData.Colors)
+}
+
+// Animal returns a random animal.
+func Animal() string {
+	return randomFrom(jsonData.Animals)
 }
